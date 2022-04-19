@@ -2,7 +2,7 @@
 require_once("conexion.php");//Comprobacion de cambios
 class Abono extends Conexion{
 	public function alta() {
-		$id_abono=$_POST["id_abono"];
+		//$id_abono=$_POST["id_abono"];
 		$ab_monto=$_POST["ab_monto"];
 		$ab_fecha=$_POST["ab_fecha"];
 
@@ -19,7 +19,7 @@ class Abono extends Conexion{
 		$this->ejecutar_sentencia();
 	}
 	public function modificar() {
-		$this->sentencia ="UPDATE abono SET id_abono='$id_abono', ab_monto='$ab_monto',ab_fecha='$ab_fecha' WHERE id_abono='$id_abono'";
+		$this->sentencia ="UPDATE abono SET ab_monto='$ab_monto',ab_fecha='$ab_fecha' WHERE id_abono='$id_abono'";
 		return $this->modificarC();
 	}
 }

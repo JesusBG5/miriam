@@ -3,7 +3,7 @@ class Conexion{
 	private static $host = 'localhost';
 	private static $usuario = 'root';
 	private static $password = '';
-	protected $base = 'sprogram_servicio';
+	protected $base = 'miriam';
 	protected $sentencia;
 	private $conexion;
 

@@ -2,7 +2,7 @@
 require_once("conexion.php");
 class Cliente extends Conexion{
 	public function alta() {
-		$id_cliente=$_POST["id_cliente"];
+		//$id_cliente=$_POST["id_cliente"];
 		$cl_nom=$_POST["cl_nom"];
 		$cl_tel=$_POST["cl_tel"];
 		$cl_direc=$_POST["cl_direc"];
@@ -20,8 +20,20 @@ class Cliente extends Conexion{
 		$this->ejecutar_sentencia();
 	}
 	public function modificar() {
-		$this->sentencia ="UPDATE cliente SET id_cliente='$id_cliente', cl_nom='$cl_nom',cl_tel='$cl_tel',cl_direc='$cl_direc' WHERE id_cliente='$id_cliente'";
+		$this->sentencia ="UPDATE cliente SET cl_nom='$cl_nom',cl_tel='$cl_tel',cl_direc='$cl_direc' WHERE id_cliente='$id_cliente'";
 		return $this->modificarC();
 	}
+
+	public function comboCliente(){
+		$this->sentencia = "SELECT cl_nom, id_cliente FROM cliente";
+		$combo= "<select name= 'cl_nom'>";
+		$resultado= $this->obtener_sentencia();
+		while($fila=$resultado->fetch_assoc()){
+			$id=$fila["id_cliente"];
+			$nombre=$fila["cl_nom"];
+			$combo=$combo."<option value='$id'>$nombre</option>";
+		}
+		return $combo;
+	}
 }
-?>
+?> 
