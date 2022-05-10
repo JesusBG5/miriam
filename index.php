@@ -5,7 +5,7 @@
 </head>
 <body>
 	<?php 
-require_once("vistaPedido.php");
+require_once("vistaCliente.php");
 	 ?>
 
 </body>

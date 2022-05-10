@@ -2,7 +2,7 @@
 require_once("conexion.php");
 class Tienda extends Conexion{
 	public function alta() {
-		$id_tienda=$_POST["id_tienda"];
+		//$id_tienda=$_POST["id_tienda"];
 		$ti_nom=$_POST["ti_nom"];
 		$ti_ubi=$_POST["ti_ubi"];
 
@@ -19,7 +19,7 @@ class Tienda extends Conexion{
 		$this->ejecutar_sentencia();
 	}
 	public function modificar() {
-		$this->sentencia ="UPDATE tienda SET id_tienda='$id_tienda', ti_nom='$ti_nom',ti_ubi='$ti_ubi' WHERE id_tienda='$id_tienda'";
+		$this->sentencia ="UPDATE tienda SET ti_nom='$ti_nom',ti_ubi='$ti_ubi' WHERE id_tienda='$id_tienda'";
 		return $this->modificarC();
 	}
 }

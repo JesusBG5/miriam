@@ -14,14 +14,26 @@ class Cliente extends Conexion{
 		$this->sentencia = "SELECT * FROM cliente";
 		return $this->obtener_sentencia();
 	}
+
+	public function buscar($id) {
+		$this->sentencia = "SELECT * FROM cliente WHERE id_cliente=$id";
+		return $this->obtener_sentencia();
+	}
+
+
 	public function baja() {
 		$id_cliente = $_POST["id_cliente"];
 		$this->sentencia = "DELETE FROM cliente WHERE id_cliente=$id_cliente";
 		$this->ejecutar_sentencia();
 	}
 	public function modificar() {
+		$id_cliente=$_POST["id_cliente"];
+		$cl_nom=$_POST["cl_nom"];
+		$cl_tel=$_POST["cl_tel"];
+		$cl_direc=$_POST["cl_direc"];
+
 		$this->sentencia ="UPDATE cliente SET cl_nom='$cl_nom',cl_tel='$cl_tel',cl_direc='$cl_direc' WHERE id_cliente='$id_cliente'";
-		return $this->modificarC();
+		return $this->ejecutar_sentencia();
 	}
 
 	public function comboCliente(){

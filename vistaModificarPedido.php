@@ -15,15 +15,14 @@ echo $obj->comboCliente();
 <input type="text" name="pe_direc"><br>
 <label>Fecha</label>
 <input type="date" name="pe_fecha"><br>
-<input type="submit" name="Alta" value="Agregar">	
-<a href="vistaModificarPedido.php">Modificar</a>	
+<input type="submit" name="Modificar" value="Modificar">		
 </form>
 
 <?php
 }
-if(isset($_POST['Alta'])){
-$obj->alta();
-echo"<h4> Pedido agregado</h4>";
+if(isset($_POST['Modificar'])){
+$obj->modificar();
+echo"<h4>Modificacion exitosa</h4>";
 
 
 }

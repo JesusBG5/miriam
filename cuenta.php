@@ -2,7 +2,7 @@
 require_once("conexion.php");
 class cuentaPagar extends Conexion{
 	public function alta() {
-		$id_cuenta=$_POST["id_cuenta"];
+		//$id_cuenta=$_POST["id_cuenta"];
 		$cu_deuda=$_POST["cu_deuda"];
 		$cu_pedido=$_POST["cu_pedido"];
 		$cu_fecha=$_POST["cu_fecha"];
@@ -20,7 +20,7 @@ class cuentaPagar extends Conexion{
 		$this->ejecutar_sentencia();
 	}
 	public function modificar() {
-		$this->sentencia ="UPDATE cuenta_pagar SET id_cuenta='$id_cuenta', cu_deuda='$cu_deuda',cu_pedido='$cu_pedido',cu_fecha='$cu_fecha' WHERE id_cuenta='$id_cuenta'";
+		$this->sentencia ="UPDATE cuenta_pagar SET cu_deuda='$cu_deuda',cu_pedido='$cu_pedido',cu_fecha='$cu_fecha' WHERE id_cuenta='$id_cuenta'";
 		return $this->modificarC();
 	}
 }
